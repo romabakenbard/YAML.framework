@@ -51,7 +51,7 @@ static void __YAMLMapArray (NSMutableArray *array) {
 static id __YAMLMapDictionary (NSMutableDictionary *dictionary) {
     if (dictionary[@"_yaml_mapClass"]) {
         Class yamlClass = dictionary[@"_yaml_mapClass"];
-        id object = [[yamlClass alloc] init];
+        id object = [[[yamlClass alloc] init] autorelease];
         [object updateWithDic:dictionary];
         return object;
     } else {
@@ -123,7 +123,7 @@ __YAMLSerializationObjectWithYAMLDocument (yaml_document_t *document, NSDictiona
                 break;
 
             case YAML_MAPPING_NODE: {
-                NSString *_custom_tag = [[NSString alloc] initWithUTF8String:(const char *)node->tag];
+                NSString *_custom_tag = [[[NSString alloc] initWithUTF8String:(const char *)node->tag] autorelease];
                 NSRange range = [_custom_tag rangeOfString:@":" options:NSBackwardsSearch];
                 if (range.location != NSNotFound) {
                     _custom_tag = [_custom_tag substringFromIndex:range.location + 1];

@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "YAML-Framework"
-  s.version      = "0.0.4"
+  s.version      = "0.0.5"
   s.summary      = "Proper YAML support for Objective-C. Based on recommended LibYAML."
   s.description  = "YAML.framework provides support for YAML (de)serialisation similarly to standard NSPropertyListSerialization. Based on C LibYAML library by Kirill Simonov."
                    
